@@ -5,7 +5,7 @@ public class JavaProgram6{
         int[] arr = {1,2,3,4,4,5,5,5,6,7,7,8,9,10,11,11,16};
         //String result = Check_Sorted_Array(arr);
         //System.out.println(result);
-        int size = RemDup(arr,17 );
+        int size = Remdup(arr,17 );
         System.out.println(Arrays.toString(arr));
         System.out.println("size is--"+size);
     }
@@ -30,5 +30,15 @@ public class JavaProgram6{
             arr[i] = temp[i];
         return res;
     }
-    
+    public static int Remdup(int arr[],int n){
+        int res =1;
+        for (int i = 0;i<n;i++){
+            if(arr[i]!=arr[res-1]){
+                arr[res]=arr[i];
+                res++;
+            }
+        }
+        return res;
+    }
+    //added a new way to remove duplicates with optimal algorithm.
 }
