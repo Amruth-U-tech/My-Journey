@@ -5,9 +5,11 @@ public class JavaProgram7{
         // System.out.println(result);
         // int factorial = Factorial(n);
         // System.out.println(factorial);
-        String a = "aabbaa";
-        boolean t = Check_Palindrom(a, 0, a.length()-1);
-        System.out.println(t);
+        // String a = "aabbaa";
+        // boolean t = Check_Palindrom(a, 0, a.length()-1);
+        // System.out.println(t);
+        int max_cuts = max_rope_cut(23, 12, 9, 1);
+        System.out.println(max_cuts);
     }
     public static int Get_Sum(int n){
         if(n==0){
@@ -38,5 +40,12 @@ public class JavaProgram7{
         if (start>=end)
             return true;
         return (a.charAt(start)==a.charAt(end))&&(Check_Palindrom(a,start+1,end-1));
+    }
+    public static int max_rope_cut(int n,int a,int b,int c){
+        if(n==0) return 0;
+        if(n<0) return -1;
+        int res = Math.max(Math.max(max_rope_cut(n-a, a, b, c),max_rope_cut(n-b, a, b, c)),max_rope_cut(n-c, a, b, c));
+        if (res==-1) return -1;
+        return res+1;
     }
 }
