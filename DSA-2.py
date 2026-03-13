@@ -1,24 +1,12 @@
 class Solution(object):
     def findErrorNums(self, nums):
-        dup=[]
-        if nums[0]>nums[1]:
-            order = nums[0]
-            for i in nums:
-                if i==order:
-                    order-=1
-                    continue
-                dup.append(i)
-                dup.append(order)
-                return dup
-        else:
-            order = 1
-            for i in nums:
-                if i==order:
-                    order+=1
-                    continue
-                dup.append(i)
-                dup.append(order)
-                return dup
-sol = Solution()
+        for i in range(len(nums)-1):
+            if nums[i]==nums[i+1]:
+                dup = nums[i]
+                if nums[0]>nums[1]:
+                    real = nums[i]-1
+                else:
+                    real = nums[i]+1
+                return [dup,real]
 nums = [3,2,2]
 print(sol.findErrorNums(nums))          
