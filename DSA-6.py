@@ -14,5 +14,13 @@ class Solution(object):
             suffix *= nums[i]
 
         return res
-    
+    def moveZeroes(self, nums):
+        v_index = 0
+        for i in range(len(nums)):
+            if nums[i]!=0:
+                nums[v_index],nums[i]=nums[i],nums[v_index]
+                v_index+=1
+            else:
+                continue
+        return nums
         
