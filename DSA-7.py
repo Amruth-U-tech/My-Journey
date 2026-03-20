@@ -38,3 +38,14 @@ class Solution(object):
             if nums[i]>0:
                 missing.append(i+1) 
         return missing
+
+    def maxProfit(self, prices):
+        buy = prices[0]
+        max1 = 0
+        for i in range(len(prices)):
+            sell = prices[i]
+            if prices[i]<buy:
+                buy=prices[i]
+            if sell-buy>max1:
+                max1 = sell-buy
+        return max1
