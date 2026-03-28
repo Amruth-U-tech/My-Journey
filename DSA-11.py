@@ -44,5 +44,20 @@ class Solution(object):
                 stack.append(int(token))
 
         return stack[0]
-sol = Solution()
-print(sol.evalRPN(tokens))
+
+    def buildArray(self, target, n):
+        index1 = 0
+        l = []
+        for i in range(1,n+1):
+
+            if i==target[index1]:
+                l.append("Push")
+                if index1==len(target)-1:
+                    return l
+                index1+=1
+                continue
+            l.append("Push")
+            l.append("Pop")
+            
+
+        return l
