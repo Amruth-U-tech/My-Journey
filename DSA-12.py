@@ -24,3 +24,23 @@ class Solution(object):
         return (s+l[-1])
 sol = Solution()
 print(sol.removeKdigits("10200",1))
+
+
+#this code is good but this is a global optimal solution
+class Solution(object):
+    def removeKdigits(self, num, k):
+        stack = []
+
+        for digit in num:
+            while stack and k > 0 and stack[-1] > digit:
+                stack.pop()
+                k -= 1
+            stack.append(digit)
+
+        # if still k left → remove from end
+        while k > 0:
+            stack.pop()
+            k -= 1
+
+        # build result
+        res = ''.join(stack).lstrip('0')
