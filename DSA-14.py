@@ -34,3 +34,13 @@ class Solution(object):
                 return i
             left_sum += nums[i]
         return -1  
+    def findDisappearedNumbers(self, nums):
+        hashset = set(nums)
+        num = []
+        for i in range(1,len(nums)+1):
+            if i not in hashset:
+                num.append(i)
+        return num
+    def missingNumber(self, nums):
+        n = len(nums)
+        return (n*(n+1))//2-sum(nums)
