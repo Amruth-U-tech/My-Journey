@@ -27,3 +27,19 @@ class Solution(object):
             right-=1
             
         return ans
+    
+    def maxProfit(self, prices):
+        buy_pointer = 0
+        sell_pointer = 0
+        max_profit = 0
+
+        for i in range(len(prices)):
+            
+            profit = prices[sell_pointer]-prices[buy_pointer]
+
+            if profit<0 or prices[i]<prices[buy_pointer]:
+                buy_pointer=i
+            max_profit = max(max_profit,profit)
+            sell_pointer+=1
+        return max_profit
+            
