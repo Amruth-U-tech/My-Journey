@@ -20,3 +20,13 @@ class Solution(object):
                     cost+=1
             hashmap[i]=cost
         return min(hashmap.values())
+    
+    def minCostToMoveChips(self, position):
+        hashmap = {"even":0,"odd":0}
+
+        for i in position:
+            if i%2==0:
+                hashmap["even"]+=1
+            else:
+                hashmap["odd"]+=1
+        return min(hashmap.values())    
