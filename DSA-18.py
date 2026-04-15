@@ -19,3 +19,9 @@ class Solution(object):
             if value==1:
                 return key
         return -1
+#optimal code for single no.
+    def singleNumber(self, nums):
+        res = 0
+        for num in nums:
+            res ^= num
+        return res
