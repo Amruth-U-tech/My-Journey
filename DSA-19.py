@@ -22,3 +22,17 @@ class Solution(object):
             if current_sum<0:
                 current_sum = 0
         return max_sum 
+
+    def lengthOfLongestSubstring(self, s):
+        
+        start = 0
+        end = 0
+        max_len = 0
+        for letter in s:
+            
+            if letter in s[start:end]:
+                start = end
+            end += 1
+            max_len = max(max_len,len(s[start:end]))
+        return max_len  
+           
