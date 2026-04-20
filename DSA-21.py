@@ -52,5 +52,26 @@ class Solution(object):
         if min_len==float('inf'):
             return 0
         return min_len
-            
+    
+#the above code is 85% there the issue here is 
+# 1.very messy and confusing
+# 2.end-current_len part is mimicking start pointer but it can get logically wrong
+# 3.window again is resetting which works for some cases but contradictory to others
+# ----------hence final clean optimal code is------------
+
+class Solution(object):
+    def minSubArrayLen(self, target, nums):
+        start = 0
+        current_sum = 0
+        min_len = float('inf')
+
+        for end in range(len(nums)):
+            current_sum += nums[end]
+
+            while current_sum >= target:
+                min_len = min(min_len, end - start + 1)
+                current_sum -= nums[start]
+                start += 1
+
+        return 0 if min_len == float('inf') else min_len            
         
