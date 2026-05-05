@@ -9,4 +9,4 @@ print("\n")
 # sort by frequency
 sorted_items = sorted(hashmap.items(), key=lambda x: x[1], reverse=True)
 print(key=lambda x:x[1])
-print(sorted_items
+print(sorted_items)
